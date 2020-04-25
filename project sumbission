@@ -22,3 +22,16 @@ in 57.86 seconds I .xml and .bin files
 
 
 
+python main.py -m model/frozen_inference_graph.xml -ct 0.6 -c BLUE
+
+from 24 to 42 seconds it didnot worked as it didn't found the bounding boxes around the person and for next person it didn't
+detected from 52-53 and also on 1:02 to 1:03 didnt't worked  from 1:05 to 1:06 again 1:35 to 1:36 ,1:52 to 1:53 
+so not suitable to choose our model
+
+
+
+
+
+
+
+
