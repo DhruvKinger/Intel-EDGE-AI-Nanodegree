@@ -64,9 +64,9 @@ class Network:
         if self.plugin.device=="CPU":
             supported_layers = self.plugin.get_supported_layers(self.net)
         
-        unsupported_layers = [l for l in self.net.layers.keys() if l not in supported_layers]
+        unsupported_layers = [layers for layers in self.net.layers.keys() if layers not in supported_layers]
 
-        if len(unsupported_layers) != 0:
+        if len(unsupported_layers) > 0:
             sys.exit(1)
 
         if num_requests==0:
