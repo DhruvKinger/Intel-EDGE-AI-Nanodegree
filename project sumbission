@@ -36,8 +36,23 @@ wget http://download.tensorflow.org/models/object_detection/faster_rcnn_inceptio
 python $MOD_OPT/mo.py --input_model frozen_inference_graph.pb --tensorflow_object_detection_api_pipeline_config pipeline.config --reverse_input_channels 
 --tensorflow_use_custom_operations_config /opt/intel/openvino/deployment_tools/model_optimizer/extensions/front/tf/faster_rcnn_support.json
 
-138.78 seconds obtained files
+--input_shape[1,227,227,3]
+
+142.55 seconds obtained files
 
 files obtained are frozen_inference_graph.xml and frozen_inference_graph.bin and i have renamed 
 them to faster_rcnn_model.xml and faster_rcnn_model.bin respectively
 
+
+
+http://download.tensorflow.org/models/object_detection/ssd_inception_v2_coco_2018_01_28.tar.gz
+python $MOD_OPT/mo.py --input_model frozen_inference_graph.pb --tensorflow_object_detection_api_pipeline_config pipeline.config --reverse_input_channels 
+--tensorflow_use_custom_operations_config /opt/intel/openvino/deployment_tools/model_optimizer/extensions/front/tf/ssd_v2_support.json
+
+55.66 seconds
+
+files obtained are frozen_inference_graph.xml and frozen_inference_graph.bin and i have renamed 
+them to frozen2.xml and frozen2.bin respectively
+
+
+python main.py -m model/frozen2.xml -ct 0.6 -c BLUE
