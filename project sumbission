@@ -1,19 +1,24 @@
+ssd_mobilenet_v2_coco
+
+download the model
 wget http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_coco_2018_03_29.tar.gz
 
-
+unpack the file
 tar -xvf   ssd_mobilenet_v2_coco_2018_03_29.tar.gz
 
 
-
+to go in the directory
 cd ssd_mobilenet_v2_coco_2018_03_29
-
+check the list of files available
 ls
 
 
-export MOD_OPT=/opt/intel/openvino/deployment_tools/model_optimizer
-
-
-python $MOD_OPT/mo.py/mo.py --input_model frozen_inference_graph.pb 
---tensorflow_object_detection_api_pipeline_config pipeline.config 
---reverse_input_channels 
+command to run 
+python $MOD_OPT/mo.py --input_model frozen_inference_graph.pb --tensorflow_object_detection_api_pipeline_config pipeline.config --reverse_input_channels 
 --tensorflow_use_custom_operations_config /opt/intel/openvino/deployment_tools/model_optimizer/extensions/front/tf/ssd_v2_support.json
+
+
+in 57.86 seconds I .xml and .bin files
+
+
+
