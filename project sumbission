@@ -1,6 +1,6 @@
-ssd_mobilenet_v2_coco
+1st Model ssd_mobilenet_v2_coco
 
-download the model
+download the model command
 wget http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_coco_2018_03_29.tar.gz
 
 unpack the file
@@ -12,7 +12,7 @@ cd ssd_mobilenet_v2_coco_2018_03_29
 check the list of files available
 ls
 
-
+export MOD_OPT=/opt/intel/openvino/deployment_tools/model_optimizer
 command to run 
 python $MOD_OPT/mo.py --input_model frozen_inference_graph.pb --tensorflow_object_detection_api_pipeline_config pipeline.config --reverse_input_channels 
 --tensorflow_use_custom_operations_config /opt/intel/openvino/deployment_tools/model_optimizer/extensions/front/tf/ssd_v2_support.json
@@ -21,17 +21,23 @@ python $MOD_OPT/mo.py --input_model frozen_inference_graph.pb --tensorflow_objec
 in 57.86 seconds I .xml and .bin files
 
 
-
+command I ran to test
 python main.py -m model/frozen_inference_graph.xml -ct 0.6 -c BLUE
 
+Issues obtained here:
 from 24 to 42 seconds it didnot worked as it didn't found the bounding boxes around the person and for next person it didn't
 detected from 52-53 and also on 1:02 to 1:03 didnt't worked  from 1:05 to 1:06 again 1:35 to 1:36 ,1:52 to 1:53 
 so not suitable to choose our model
 
+2nd Model faster_rcnn_inception_v2_coco_2018_01_28
 
+wget http://download.tensorflow.org/models/object_detection/faster_rcnn_inception_v2_coco_2018_01_28.tar.gz
 
+python $MOD_OPT/mo.py --input_model frozen_inference_graph.pb --tensorflow_object_detection_api_pipeline_config pipeline.config --reverse_input_channels 
+--tensorflow_use_custom_operations_config /opt/intel/openvino/deployment_tools/model_optimizer/extensions/front/tf/faster_rcnn_support.json
 
+138.78 seconds obtained files
 
-
-
+files obtained are frozen_inference_graph.xml and frozen_inference_graph.bin and i have renamed 
+them to faster_rcnn_model.xml and faster_rcnn_model.bin respectively
 
