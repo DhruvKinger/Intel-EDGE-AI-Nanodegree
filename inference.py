@@ -43,7 +43,7 @@ class Network:
         self.net_plugin = None
         self.infer_request = None
         
-    def load_model(self,model,device,cpu_extension=None):
+    def load_model(self,model,device,input_size,output_size,num_requests,cpu_extension=None,plugin=None):
        
         model_xml=model
         model_bin=os.path.splitext(model_xml)[0] + ".bin"
