@@ -70,17 +70,17 @@ def build_argparser():
     
     return parser
 
-def performance_counts(perf_count):
+#def performance_counts(perf_count):
     
-    print("{:<70} {:<15} {:<15} {:<15} {:<10}".format('name', 'layer_type',
+   # print("{:<70} {:<15} {:<15} {:<15} {:<10}".format('name', 'layer_type',
                                                       'exec_type', 'status',
                                                       'real_time, us'))
-    for layer, stats in perf_count.items():
-        print("{:<70} {:<15} {:<15} {:<15} {:<10}".format(layer,
-                                                          stats['layer_type'],
-                                                          stats['exec_type'],
-                                                          stats['status'],
-                                                          stats['real_time']))
+    #for layer, stats in perf_count.items():
+       # print("{:<70} {:<15} {:<15} {:<15} {:<10}".format(layer,
+                                                        #  stats['layer_type'],
+                                                         # stats['exec_type'],
+                                                         # stats['status'],
+                                                          #stats['real_time']))
 def model_out(frame, result):
     
     current_count = 0
@@ -125,6 +125,7 @@ def infer_on_stream(args, client):
     total_count = 0
     start_time = 0
     ### TODO: Load the model through `infer_network` ###
+    
     infer_network = Network()
     n, c, h, w = infer_network.load_model(args.model, args.device, 1, 1,
                                           cur_request_id, args.cpu_extension)[1]
@@ -145,8 +146,8 @@ def infer_on_stream(args, client):
     if input_stream:
         cap.open(args.input)
    
-    if not cap.isOpened():
-        log.error("ERROR! Unable to open video source") 
+    # if not cap.isOpened():
+        #log.error("ERROR! Unable to open video source") 
     
     ### TODO: Read from the video capture ###
 
@@ -181,9 +182,9 @@ def infer_on_stream(args, client):
             
         ### TODO: Get the results of the inference request ###
             result = infer_network.get_output(cur_request_id)
-            if args.perf_counts:
-                perf_count = infer_network.performance_counter(cur_request_id)
-                performance_counts(perf_count)
+            #if args.perf_counts:
+               # perf_count = infer_network.performance_counter(cur_request_id)
+                #performance_counts(perf_count)
                 
                 
             frame, current_count = model_out(frame, result)
