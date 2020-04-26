@@ -51,6 +51,7 @@ so mentors suggested me to use some other model
 ssd_inception_v2_coco_2018_01_28
 
 http://download.tensorflow.org/models/object_detection/ssd_inception_v2_coco_2018_01_28.tar.gz
+
 python $MOD_OPT/mo.py --input_model frozen_inference_graph.pb --tensorflow_object_detection_api_pipeline_config pipeline.config --reverse_input_channels 
 --tensorflow_use_custom_operations_config /opt/intel/openvino/deployment_tools/model_optimizer/extensions/front/tf/ssd_v2_support.json
 
@@ -66,3 +67,28 @@ it failed in respective seconds 0:07,0:17 and when second person came it didn't 
 
 
 python main.py -m model/frozen2.xml -ct 0.6 -c BLUE
+
+
+4th model 
+
+ssd_mobilenet_v1_coco 
+
+
+
+wget http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_2018_01_28.tar.gz
+
+tar -xvf ssd_mobilenet_v1_coco_2018_01_28.tar.gz
+
+cd ssd_mobilenet_v1_coco_2018_01_28
+
+ls
+
+python $MOD_OPT/mo.py --input_model frozen_inference_graph.pb --tensorflow_object_detection_api_pipeline_config pipeline.config --reverse_input_channels 
+--tensorflow_use_custom_operations_config /opt/intel/openvino/deployment_tools/model_optimizer/extensions/front/tf/ssd_v1_support.json
+
+ Or because the node inputs have incorrect values/shapes.
+[ ERROR ]  Or because input shapes are incorrect (embedded to the model or passed via --input_shape).
+[ ERROR ]  Run Model Optimizer with --log_level=DEBUG for more information.
+[ ERROR ]  Not all output shapes were inferred or fully defined for node "image_tensor". 
+this errors lead to failure of conversion of model into IR 
+
