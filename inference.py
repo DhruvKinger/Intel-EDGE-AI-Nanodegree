@@ -41,19 +41,20 @@ class Network:
         self.input_blob = None
         self.out_blob = None
         self.net_plugin = None
-        self.infer_request_handle = None
+        self.infer_request = None
         
-    def load_model(self,model,device,input_size, output_size,num_requests,cpu_extension=None,plugin=None):
+    def load_model(self,model,device,cpu_extension=None):
+       
         model_xml=model
         model_bin=os.path.splitext(model_xml)[0] + ".bin"
-        ### TODO: Load the model ###
-        if not plugin:
-            self.plugin = IEPlugin(device=device)
-        else:
-            self.plugin = plugin
         
-        if cpu_extension and 'CPU' in device:
-            self.plugin.add_cpu_extension(cpu_extension)
+        
+        ### TODO: Load the model ###
+        
+        self.plugin = IECore()
+        
+       if cpu_extension and "CPU" in device:
+            self.plugin.add_extension(cpu_extension, device)
         
         ### TODO: Check for supported layers ###
         ### TODO: Add any necessary extensions ###
@@ -69,11 +70,7 @@ class Network:
         if len(unsupported_layers) > 0:
             sys.exit(1)
 
-        if num_requests==0:
-            self.net_plugin = self.plugin.load(network=self.net)
-        
-        else:
-            self.net_plugin = self.plugin.load(network=self.net, num_requests=num_requests)
+        self.net_plugin = self.plugin.load_network(self.net, device)
        
         self.input_blob = next(iter(self.net.inputs))
         self.out_blob = next(iter(self.net.outputs))
@@ -82,7 +79,7 @@ class Network:
         
         
         ### Note: You may need to update the function parameters. ###
-        return self.plugin,self.get_input_shape()
+        return self.net_plugin,self.get_input_shape()
 
     def get_input_shape(self):
         ### TODO: Return the shape of the input layer ###
