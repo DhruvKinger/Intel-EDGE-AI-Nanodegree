@@ -35,15 +35,20 @@ wget http://download.tensorflow.org/models/object_detection/faster_rcnn_inceptio
 
 python $MOD_OPT/mo.py --input_model frozen_inference_graph.pb --tensorflow_object_detection_api_pipeline_config pipeline.config --reverse_input_channels 
 --tensorflow_use_custom_operations_config /opt/intel/openvino/deployment_tools/model_optimizer/extensions/front/tf/faster_rcnn_support.json
-
+first resulted in genration in 139 seconds
+tried both with shape as well as without shape 
 --input_shape[1,227,227,3]
 
 142.55 seconds obtained files
 
 files obtained are frozen_inference_graph.xml and frozen_inference_graph.bin and i have renamed 
 them to faster_rcnn_model.xml and faster_rcnn_model.bin respectively
+both both were giving error core dumped and some more errors
+
+so mentors suggested me to use some other model
 
 
+ssd_inception_v2_coco_2018_01_28
 
 http://download.tensorflow.org/models/object_detection/ssd_inception_v2_coco_2018_01_28.tar.gz
 python $MOD_OPT/mo.py --input_model frozen_inference_graph.pb --tensorflow_object_detection_api_pipeline_config pipeline.config --reverse_input_channels 
@@ -53,6 +58,11 @@ python $MOD_OPT/mo.py --input_model frozen_inference_graph.pb --tensorflow_objec
 
 files obtained are frozen_inference_graph.xml and frozen_inference_graph.bin and i have renamed 
 them to frozen2.xml and frozen2.bin respectively
+
+it also has issues like first model where it failed to detect person in specific specific seconds like :
+it failed in respective seconds 0:07,0:17 and when second person came it didn't worked for 17 seconds from 0:25 to 0:42.Similarly for 3rd person it didn't worked in
+51st second,53rd and 1:05  again it failed for 20 seconds from 1:35 to 1:50.thus average duration may not be optained exactly so we cann't use this model as well.
+
 
 
 python main.py -m model/frozen2.xml -ct 0.6 -c BLUE
