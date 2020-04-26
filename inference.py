@@ -85,16 +85,16 @@ class Network:
         ### TODO: Return the shape of the input layer ###
         return self.net.inputs[self.input_blob].shape
     
-    def performance_counter(self, request_id):
-        perf_count = self.net_plugin.requests[request_id].get_perf_counts()
+    ###def performance_counter(self, request_id):
+       ## perf_count = self.net_plugin.requests[request_id].get_perf_counts()
         
-        return perf_count
+        ##return perf_count
 
     def exec_net(self,request_id,frame):
         ### TODO: Start an asynchronous request ###
         ### TODO: Return any necessary information ###
         ### Note: You may need to update the function parameters. ###
-        self.infer_request_handle = self.net_plugin.start_async(
+        self.infer_request = self.net_plugin.start_async(
         request_id=request_id, inputs={self.input_blob: frame})
         
         return self.net_plugin
