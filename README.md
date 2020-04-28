@@ -9,3 +9,5 @@
 [OpenVINO ToolKit](https://docs.openvinotoolkit.org/2020.2/index.html)
 
 [Resume Scan with Job](jobscan.co)
+
+[LinkedIn Sales Index](https://www.linkedin.com/sales/ssi)
