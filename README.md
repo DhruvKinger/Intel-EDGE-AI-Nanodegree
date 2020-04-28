@@ -7,3 +7,5 @@
 [Linkedin Profile Improvement](https://docs.google.com/document/d/e/2PACX-1vRsryXtKM4HTYOujmTsGbU7JT0PSWcVq9xAQlXQEg00rLQMWplLQlxf3PYDIO0YycGduLpClN3f_RN-/pub?embedded=true)
 
 [OpenVINO ToolKit](https://docs.openvinotoolkit.org/2020.2/index.html)
+
+[Resume Scan with Job](jobscan.co)
