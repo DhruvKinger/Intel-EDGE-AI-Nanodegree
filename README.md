@@ -11,3 +11,5 @@
 [Resume Scan with Job](jobscan.co)
 
 [LinkedIn Sales Index](https://www.linkedin.com/sales/ssi)
+
+[Hardware Intel](https://video.udacity-data.com/topher/2020/April/5e99e4b9_glossary-course-2-choose-the-right-hardware/glossary-course-2-choose-the-right-hardware.pdf)
