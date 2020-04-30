@@ -14,4 +14,4 @@
 
 [Hardware Intel](https://video.udacity-data.com/topher/2020/April/5e99e4b9_glossary-course-2-choose-the-right-hardware/glossary-course-2-choose-the-right-hardware.pdf)
 
-[OpenVinoo System requirements](https://software.intel.com/en-us/openvino-toolkit/documentation/system-requirements)
+[OpenVino System requirements](https://software.intel.com/en-us/openvino-toolkit/documentation/system-requirements)
