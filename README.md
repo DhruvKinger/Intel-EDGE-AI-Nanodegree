@@ -17,3 +17,4 @@
 [OpenVino System requirements](https://software.intel.com/en-us/openvino-toolkit/documentation/system-requirements)
 
 [Thermal Design Power](https://www.howtogeek.com/438898/what-is-tdp-for-cpus-and-gpus/)
+[NCS2](https://software.intel.com/sites/default/files/managed/80/10/ncs2-product-brief.pdf)
