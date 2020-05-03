@@ -72,7 +72,7 @@ class PersonDetect:
         return self.coords, self.image 
     
     
-    def draw_outputs(self, coords, image):
+    def draw_outputs(self, detections, image):
         
         coords=[]
         for box in detections[0][0]: 
