@@ -66,8 +66,8 @@ class PersonDetect:
     
         self.processed_image=self.preprocess_input(image)
         results=self.net.infer(inputs={self.input_name: self.processed_image})
-        detect = results[self.output_name]
-        self.coords, self.image = self.draw_outputs(detect, image)
+        detections = results[self.output_name]
+        self.coords, self.image = self.draw_outputs(detections, image)
 #       self.image = self.preprocess_outputs(self.image) 
         return self.coords, self.image 
     
