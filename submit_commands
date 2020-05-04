@@ -11,3 +11,7 @@ print(gpu_job_id[0])
 #Submit job to the queue
 vpu_job_id = !qsub queue_job.sh -d . -l nodes=1:tank-870:i5-6500te:intel-ncs2 -F " /data/models/intel/person-detection-retail-0013/FP32/person-detection-retail-0013 MULTI:CPU,MYRIAD /data/resources/manufacturing.mp4 /data/queue_param/manufacturing.npy /output/results/manufacturing/MULTI:CPU,MYRIAD 5 " -N store_core
 print(vpu_job_id[0])
+
+#Submit job to the queue
+fpga_job_id = !qsub queue_job.sh -d . -l nodes=1:tank-870:i5-6500te:iei-mustang-f100-a10 -F " /data/models/intel/person-detection-retail-0013/FP32/person-detection-retail-0013 HETERO:FPGA,CPU /data/resources/manufacturing.mp4 /data/queue_param/manufacturing.npy /output/results/manufacturing/FPGA 5 " -N store_core
+print(fpga_job_id[0])
