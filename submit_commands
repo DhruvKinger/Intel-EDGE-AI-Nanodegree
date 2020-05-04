@@ -32,7 +32,9 @@ print(vpu_job_id[0])
 fpga_job_id =!qsub queue_job.sh -d . -l nodes=1:tank-870:i5-6500te:iei-mustang-f100-a10 -F " /data/models/intel/person-detection-retail-0013/FP32/person-detection-retail-0013 HETERO:FPGA,CPU /data/resources/retail.mp4 /data/queue_param/retail.npy /output/results/retail/FPGA 2" -N store_core
 print(fpga_job_id[0])
 
+# Transportation
 
-
+cpu_job_id =!qsub queue_job.sh -d . -l nodes=1:tank-870:i5-6500te -F " /data/models/intel/person-detection-retail-0013/FP32/person-detection-retail-0013 CPU /data/resources/transportation.mp4 /data/queue_param/transportation.npy /output/results/transportation/CPU 7" -N store_core
+print(cpu_job_id[0])
 
 
