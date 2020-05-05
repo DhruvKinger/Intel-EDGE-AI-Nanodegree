@@ -17,6 +17,9 @@
 [OpenVino System requirements](https://software.intel.com/en-us/openvino-toolkit/documentation/system-requirements)
 
 [Thermal Design Power](https://www.howtogeek.com/438898/what-is-tdp-for-cpus-and-gpus/)
+
 [NCS2](https://software.intel.com/sites/default/files/managed/80/10/ncs2-product-brief.pdf)
+
 [FPGA](https://www.intel.com/content/dam/www/programmable/us/en/pdfs/literature/wp/intel-vision-accelerator-design-with-FPGA-wp.pdf)
+
 [Installing OpenVino](https://docs.openvinotoolkit.org/2020.2/_docs_install_guides_installing_openvino_windows.html)
