@@ -25,3 +25,5 @@
 [Installing OpenVino](https://docs.openvinotoolkit.org/2020.2/_docs_install_guides_installing_openvino_windows.html)
 
 [Software Optimization](https://video.udacity-data.com/topher/2020/April/5e9857d1_glossary-course-3-optimization-techniques-and-tools/glossary-course-3-optimization-techniques-and-tools.pdf)
+
+[CNN](https://adeshpande3.github.io/A-Beginner%27s-Guide-To-Understanding-Convolutional-Neural-Networks/)
