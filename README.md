@@ -29,3 +29,5 @@
 [Software Optimization](https://video.udacity-data.com/topher/2020/April/5e9857d1_glossary-course-3-optimization-techniques-and-tools/glossary-course-3-optimization-techniques-and-tools.pdf)
 
 [CNN](https://adeshpande3.github.io/A-Beginner%27s-Guide-To-Understanding-Convolutional-Neural-Networks/)
+
+[Intel Dev Cloud](https://software.intel.com/content/www/us/en/develop/tools/devcloud/edge.html)
